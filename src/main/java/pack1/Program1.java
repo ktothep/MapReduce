@@ -20,6 +20,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Program1 {
+    /*
+     Mapper Class
+     This class takes the input key value pair as Long,Text
+     Output Key Value pair is Text,Text
+     */
    public static class Map extends Mapper<LongWritable, Text,Text,Text>
     {
 
@@ -31,7 +36,11 @@ public class Program1 {
        }
 
     }
-
+    /*
+         Reduce Class
+         This class takes the input key value pair as Text,Text
+         Output Key Value pair is Text,Double
+         */
     public static class Reduce extends Reducer<Text, Text,Text, DoubleWritable>
     {
 
@@ -60,6 +69,9 @@ public class Program1 {
         }
 
     }
+    /*
+    This is the driver class where different Configuration parameters have been defined.
+    */
     public static void main(String args[]) throws IOException, InterruptedException, ClassNotFoundException {
 
         Configuration conf= new Configuration();
