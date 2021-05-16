@@ -32,24 +32,28 @@ public class Program1 {
 
     }
 
-    public static class Reduce extends Reducer<Text, Text,Text,DoubleWritable>
+    public static class Reduce extends Reducer<Text, Text,Text, DoubleWritable>
     {
-        double count=0;
-        double sum=0;
+
         public void reduce(Text key,Iterable<Text> value,Context context) throws IOException, InterruptedException {
-          LongWritable lng=new LongWritable();
+            double count=0;
+            double sum=0;
+
+          DoubleWritable lng=new DoubleWritable();
             for(Text price:value)
             {
                 count++;
+                lng.set(Double.parseDouble(price.toString()));
+                sum=sum +lng.get() ;
             }
-          for(Text price:value)
-          {
-           sum=sum+Double.parseDouble(price.toString());
-          }
-            double avg=sum/count;
-            context.write(new Text("Count"),new DoubleWritable(count));
+
+
+
+          context.write(new Text("Count"),new DoubleWritable(count));
             context.write(new Text("Sum"),new DoubleWritable(sum));
-            context.write(new Text("Average"),new DoubleWritable(avg));
+
+            context.write(new Text("Average"),new DoubleWritable(sum/count));
+
 
 
 
