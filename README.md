@@ -10,3 +10,5 @@ hadoop jar MapReduce.jar pack1.Program2 input-directory-path output-directory-pa
 **Program 3**: Calculates the word count in the Sample.txt file.Place the sample.txt file in your HDFS and run the code .Make use of jar file present in Program3 folder:
 hadoop jar MapReduce.jar pack1.Program3 input-directory-path output-directory-path
 
+**Program 4**: This makes use of implementation Writeable interface.Stock.csv is the file which is used in this case.It will store the values where the Stock High price is more than 5.Make use of Map Reduce jar present in Program4 folder
+hadoop jar MapReduce.jar pack1.Program3 input-directory-path output-directory-path
